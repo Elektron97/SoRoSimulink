@@ -14,11 +14,12 @@ startup
 cd(current_path)
 
 %% Load Robot
-robot_name = "isupport";
+robot_name = "hsupport";
 load(fullfile("robots", robot_name, "robot_linkage.mat"));
 
 %% Dynamics Handle
 addpath("functions")
+addpath("signals")
 sorosim_handle = @(x, u, t) sorosim_dynamics(T1, x, u, t);
 
 %% Initial Conditions
@@ -30,4 +31,7 @@ nx = 2*T1.ndof;
 nu = T1.nact;
 
 %% Open Simulink
-open_system("sorosimulink.slx");
+% Load Simulink file
+load_system('sorosimulink.slx');
+% Simulate and Extract results
+result = sim('sorosimulink.slx', 'ReturnWorkspaceOutputs','on');
