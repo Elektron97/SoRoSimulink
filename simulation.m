@@ -61,4 +61,4 @@ for i = 1:length(result.t)
 end
 
 %% Save
-save("actuators_dynamics.mat", "result", '-v7.3');
+save("actuators_dynamics10.mat", '-v7.3', '-fromstruct', result);
