@@ -1,2 +1,4 @@
-*.slxc
+*.mat
+*.asv
 slprj/*
+*.slx*
